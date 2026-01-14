@@ -9,20 +9,22 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react-dom": "^19.2.3",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^5.1.1",
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.5",
-    "@types/react-dom": "^19.2.3",
     "@chromatic-com/storybook": "^5.0.0",
     "@storybook/addon-a11y": "^10.1.11",
     "@storybook/addon-docs": "^10.1.11",
     "@storybook/addon-onboarding": "^10.1.11",
     "@storybook/addon-vitest": "^10.1.11",
     "@storybook/react-vite": "^10.1.11",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
     "@vitest/browser-playwright": "^4.0.17",
     "@vitest/coverage-v8": "^4.0.17",
     "msw": "^2.12.7",

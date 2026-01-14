@@ -1,10 +1,26 @@
 import type { Preview } from '@storybook/react-vite'
 import { initialize, mswLoader } from 'msw-storybook-addon'
 
-import '../src/components/UserCard';
+// this is essential to trigger HMR to reload preview.ts file when edit a component file
+import css from '../src/styles.css?inline';
+import {http, HttpResponse} from "msw";
 
-console.log('preview3', import.meta.hot)
+
+
 // Initialize MSW
+initialize({}, [
+  http.get('/api/users', () => {
+    return HttpResponse.json({
+      id: 3,
+      name: 'Michael Chen 111',
+      email: 'michael.chen@example.com',
+      role: 'Senior Developer',
+      bio: 'Full-stack developer specializing in modern web technologies and cloud architecture.',
+    });
+  }),
+])
+
+// simulate HMR reloaded this file and the initialize() called once again
 initialize()
 
 const preview: Preview = {

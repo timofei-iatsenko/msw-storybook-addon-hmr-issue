@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { http, HttpResponse } from 'msw';
 import { UserCard } from './UserCard';
-import {createUserMswHandler} from "./handlers.ts";
 
 const meta = {
   title: 'Components/UserCard',
@@ -36,7 +35,15 @@ export const Designer: Story = {
   parameters: {
     msw: {
       handlers: [
-        createUserMswHandler()
+        http.get('/api/users', () => {
+          return HttpResponse.json({
+            id: 4,
+            name: 'Emma Wilson',
+            email: 'emma.wilson@example.com',
+            role: 'UI/UX Designer',
+            bio: 'Creative designer focused on user-centered design and creating beautiful interfaces.',
+          });
+        })
       ],
     },
   },
